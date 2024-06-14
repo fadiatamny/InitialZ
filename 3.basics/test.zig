@@ -55,3 +55,18 @@ test "switch expression" {
     };
     try expect(x == 1);
 }
+
+test "well defined overflow" {
+    var a: u8 = 255;
+    a +%= 1;
+    try expect(a == 0);
+    // a = 255;
+    // a += 1;
+    // try expect(a == 0);
+}
+
+test "sentinel terminated slicing" {
+    var x = [_:0]u8{255} ** 3;
+    const y = x[0..3 :0];
+    _ = y;
+}

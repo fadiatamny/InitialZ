@@ -40,4 +40,14 @@ pub fn main() !void {
     for (arr) |ai| {
         std.debug.print("a: {}", .{ai});
     }
+
+    try out.writeAll("\n");
+
+    const hh: ?u32 = 5;
+    if (hh) |val| {
+        std.debug.print("not null valll: {}\n", .{val});
+    }
+    if (hh) |*val| {
+        std.debug.print("not null valll: {}\n", .{val.*});
+    }
 }
